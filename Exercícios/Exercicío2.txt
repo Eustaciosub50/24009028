@@ -1,0 +1,55 @@
+CASO 1
+
+#include <stdio.h>
+// Incluindo variáveis
+int main() {
+    int numeroVisitantes = 0;
+    int visitantesDia;
+    char opcao;
+
+    do {
+        // Solicita que o recepcionista inserira o número de visitantes
+        printf("Insira o número de visitantes que entraram na empresa hoje: ");
+        scanf("%d", &visitantesDia);
+
+        // Atualiza o número total de visitantes
+        numeroVisitantes += visitantesDia;
+
+        // Mostra uma mensagem de confirmação
+        printf("Número de visitantes registrado com sucesso!\n");
+        printf("Total de visitantes até agora: %d\n", numeroVisitantes);
+
+       // Pergunta se o recepcionista deseja registrar mais visitantes
+        printf("Deseja registrar mais visitantes? (s/n): ");
+        scanf(" %c", &opcao);
+
+    } while(opcao == 's');
+
+    printf("Registro finalizado. Total de visitantes hoje: %d\n", numeroVisitantes);
+
+    return 0;
+}
+
+CASO 2
+
+#include <stdio.h>
+// Incluindo variáveis
+int main() {
+    float receita, despesa, saldo;
+
+    // Pede que o usuário coloque a receita
+    printf("Digite o valor da receita: ");
+    scanf("%f", &receita);
+
+    // Pede que o usuário coloque a despesa
+    printf("Digite o valor da despesa: ");
+    scanf("%f", &despesa);
+
+    // Atualiza o saldo
+    saldo = receita - despesa;
+
+    // Exibir o saldo atualizado
+    printf("Saldo atualizado: %.2f\n", saldo);
+
+    return 0;
+}
