@@ -1,0 +1,174 @@
+Exercício 1: Controle de Temperatura
+#include <stdio.h>
+
+int main() {
+    float temperatura;
+
+    do {
+        printf("Insira a temperatura atual (em °C): ");
+        scanf("%f", &temperatura);
+
+        if (temperatura < 20.0 || temperatura > 25.0) {
+            printf("ALERTA: Temperatura fora do intervalo seguro! Ajuste necessário.\n");
+        } else {
+            printf("Temperatura dentro do intervalo seguro.\n");
+        }
+    } while (temperatura < 20.0 || temperatura > 25.0);
+
+    return 0;
+}
+
+Exercício 2: Controle de Combustível
+#include <stdio.h>
+
+int main() {
+    int combustivel;
+
+    do {
+        printf("Insira o nível de combustível (em %%): ");
+        scanf("%d", &combustivel);
+
+        if (combustivel < 15) {
+            printf("ALERTA: Nível de combustível baixo! Recarregue o veículo.\n");
+        } else if (combustivel < 100) {
+            printf("Combustível suficiente, mas ainda não está cheio.\n");
+        } else {
+            printf("Combustível no nível máximo.\n");
+        }
+    } while (combustivel < 100);
+
+    return 0;
+}
+
+Exercício 3: Contagem de Passos
+#include <stdio.h>
+
+int main() {
+    int passos, totalPassos = 0;
+
+    do {
+        printf("Digite a quantidade de passos dados: ");
+        scanf("%d", &passos);
+        totalPassos += passos;
+
+        printf("Total de passos até o momento: %d\n", totalPassos);
+        if (totalPassos < 10000) {
+            printf("Continue! Faltam %d passos para atingir a meta.\n", 10000 - totalPassos);
+        } else {
+            printf("Parabéns! Meta diária atingida ou ultrapassada.\n");
+        }
+    } while (totalPassos < 10000);
+
+    return 0;
+}
+
+Exercício 4: Verificação de Depósito
+#include <stdio.h>
+
+int main() {
+    float deposito;
+
+    do {
+        printf("Insira o valor do depósito inicial (mínimo R$ 500,00): ");
+        scanf("%f", &deposito);
+
+        if (deposito < 500.0) {
+            printf("Depósito insuficiente! Por favor, insira um valor maior ou igual a R$ 500,00.\n");
+        } else {
+            printf("Depósito válido! Conta criada com sucesso.\n");
+        }
+    } while (deposito < 500.0);
+
+    return 0;
+}
+
+Desafio: Análise de Desempenho de Ações
+#include <stdio.h>
+#include <math.h>
+
+int main() {
+    int dias, i;
+    float soma = 0, media, desvio = 0;
+
+    printf("Quantos dias deseja analisar? ");
+    scanf("%d", &dias);
+
+    float precos[dias];
+
+    for (i = 0; i < dias; i++) {
+        printf("Digite o preço da ação no dia %d: ", i + 1);
+        scanf("%f", &precos[i]);
+        soma += precos[i];
+    }
+
+    media = soma / dias;
+
+    for (i = 0; i < dias; i++) {
+        desvio += pow(precos[i] - media, 2);
+    }
+
+    desvio = sqrt(desvio / dias);
+
+    printf("Média: %.2f\n", media);
+    printf("Desvio padrão: %.2f\n", desvio);
+
+    if (desvio < 5.0) {
+        printf("Desempenho estável.\n");
+    } else {
+        printf("Desempenho volátil.\n");
+    }
+
+    return 0;
+}
+
+Desafio 2.1: Controle Completo de Robô
+#include <stdio.h>
+
+void controleMovimento() {
+    printf("Controle de movimento iniciado. (Simulação em 10x10)\n");
+}
+
+void leituraSensores() {
+    printf("Leitura de sensores iniciada. (Distância < 10 cm para parar)\n");
+}
+
+void controleAtuacao() {
+    printf("Controle de atuação: Ações disponíveis.\n");
+}
+
+void monitoramentoBateria() {
+    printf("Monitoramento da bateria iniciado.\n");
+}
+
+void navegacaoAutonoma() {
+    printf("Navegação autônoma no grid 5x5 iniciada.\n");
+}
+
+int main() {
+    int opcao;
+
+    do {
+        printf("\nMenu Principal:\n");
+        printf("1. Controle de Movimento\n");
+        printf("2. Leitura de Sensores\n");
+        printf("3. Controle de Atuação\n");
+        printf("4. Monitoramento de Bateria\n");
+        printf("5. Navegação Autônoma\n");
+        printf("6. Sair\n");
+        printf("Escolha uma opção: ");
+        scanf("%d", &opcao);
+
+        switch (opcao) {
+            case 1: controleMovimento(); break;
+            case 2: leituraSensores(); break;
+            case 3: controleAtuacao(); break;
+            case 4: monitoramentoBateria(); break;
+            case 5: navegacaoAutonoma(); break;
+            case 6: printf("Saindo do programa.\n"); break;
+            default: printf("Opção inválida! Tente novamente.\n");
+        }
+    } while (opcao != 6);
+
+    return 0;
+}
+
